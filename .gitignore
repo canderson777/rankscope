@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.cache/
+
+# Secrets — never commit these
+.env
+.env.local
+.env.*.local
+
+*.tsbuildinfo
+*.bak
+
+# Local agent / editor noise
+.hermes/
+.claude/
+.agents/
+.DS_Store
+__pycache__/
+*.pyc
+*.log

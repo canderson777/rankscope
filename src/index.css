@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Surfaces & ink (light) */
+  --bg: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-2: #f0efec;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --hairline: #e1e0d9;
+  --baseline: #c3c2b7;
+  --ring: rgba(11, 11, 11, 0.1);
+
+  /* Brand accent = categorical slot 1 */
+  --accent: #2a78d6;
+  --accent-soft: #cde2fb;
+
+  /* Categorical series (validated order — never cycle) */
+  --s1: #2a78d6;
+  --s2: #1baf7a;
+  --s3: #eda100;
+  --s4: #008300;
+  --s5: #4a3aa7;
+  --s6: #e34948;
+  --s7: #e87ba4;
+  --s8: #eb6834;
+
+  /* Sequential blue ramp (for meters/heat) */
+  --seq-100: #cde2fb;
+  --seq-250: #86b6ef;
+  --seq-400: #3987e5;
+  --seq-550: #1c5cab;
+  --seq-700: #0d366b;
+
+  /* Status (fixed, never themed) */
+  --good: #0ca30c;
+  --warn: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --delta-up: #006300;
+  --delta-down: #b32d2d;
+}
+
+.dark {
+  --bg: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-2: #232322;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --hairline: #2c2c2a;
+  --baseline: #383835;
+  --ring: rgba(255, 255, 255, 0.1);
+
+  --accent: #3987e5;
+  --accent-soft: #0d366b;
+
+  --s1: #3987e5;
+  --s2: #199e70;
+  --s3: #c98500;
+  --s4: #008300;
+  --s5: #9085e9;
+  --s6: #e66767;
+  --s7: #d55181;
+  --s8: #d95926;
+
+  --delta-up: #0ca30c;
+  --delta-down: #e66767;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-hairline: var(--hairline);
+  --color-baseline: var(--baseline);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-s1: var(--s1);
+  --color-s2: var(--s2);
+  --color-s3: var(--s3);
+  --color-s4: var(--s4);
+  --color-s5: var(--s5);
+  --color-s6: var(--s6);
+  --color-s7: var(--s7);
+  --color-s8: var(--s8);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --color-serious: var(--serious);
+  --color-critical: var(--critical);
+  --color-delta-up: var(--delta-up);
+  --color-delta-down: var(--delta-down);
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular figures for table/number columns */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Thin scrollbars for tables */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--baseline) transparent;
+}
+
+/* Recharts chrome overrides — recessive grid, no focus outline box */
+.recharts-cartesian-grid line {
+  stroke: var(--hairline);
+}
+.recharts-text {
+  fill: var(--muted);
+  font-size: 11px;
+}
+.recharts-default-tooltip {
+  border-radius: 8px;
+}
+.recharts-surface:focus,
+.recharts-wrapper:focus {
+  outline: none;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.55;
+  }
+}
+.skeleton {
+  background: var(--surface-2);
+  border-radius: 6px;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
