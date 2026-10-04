@@ -8,6 +8,14 @@ local Node API that keeps your API keys off the browser.
 data whenever you want it, and start with the two free sources (Google PageSpeed
 Insights and Search Console) before paying for anything.
 
+## Screenshots
+
+These captures show the deterministic mock dataset. The `example.com` profile is illustrative; no live provider data is shown.
+
+| Dashboard · example.com | AI Visibility · mock data |
+| --- | --- |
+| ![RankScope dashboard with an example.com mock profile](docs/screenshots/dashboard.png) | ![RankScope AI Visibility overview with mock metrics](docs/screenshots/ai-visibility.png) |
+
 ## Features
 
 - **Dashboard** — At-a-glance metrics: authority score, organic/paid traffic, backlinks, referring domains
